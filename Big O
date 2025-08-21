@@ -1,0 +1,39 @@
+1. test(function, array="random", limit=True, prtResult=True)
+function: La función que quieres analizar (por ejemplo, tu algoritmo de ordenamiento).
+array: El tipo de datos de entrada. Puede ser "random", "sorted", "reversed", "partial", etc.
+limit: Si es True, limita el tamaño del array para evitar pruebas muy largas.
+prtResult: Si es True, imprime el resultado en consola.
+Ejemplo:
+def mi_ordenamiento(arr):
+    return sorted(arr)
+
+bigO = BigO()
+resultado = bigO.test(mi_ordenamiento, array="random")
+print(resultado)  # Muestra la complejidad estimada y el tiempo
+
+2. test_all(function)
+function: Tu función a analizar.
+Prueba la función con varios tipos de arreglos (random, sorted, reversed, etc.) y muestra los resultados para cada caso.
+Ejemplo:
+bigO.test_all(mi_ordenamiento)
+# Imprime los resultados para best, average y worst case
+
+3. runtime(function, array="random", size, epoch=1)
+function: Tu función a analizar.
+array: Tipo de datos de entrada.
+size: Tamaño del arreglo a probar.
+epoch: Número de veces que se repite la prueba para obtener un promedio.
+Ejemplo:
+tiempo, resultado = bigO.runtime(mi_ordenamiento, array="random", size=1000, epoch=5)
+print(f"Tiempo promedio: {tiempo}")
+
+4. compare(function1, function2, array, size, epoch=3)
+function1, function2: Dos funciones a comparar.
+array: Tipo de datos de entrada.
+size: Tamaño del arreglo.
+epoch: Número de repeticiones para promediar.
+Ejemplo:
+def ordenamiento1(arr): return sorted(arr)
+def ordenamiento2(arr): return arr[::-1]  # Ejemplo simple
+comparacion = bigO.compare(ordenamiento1, ordenamiento2, array="random", size=1000, epoch=3)
+print(comparacion)
