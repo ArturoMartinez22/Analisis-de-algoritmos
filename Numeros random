@@ -1,0 +1,15 @@
+import random
+
+# Parámetros
+cantidad = 10      # Cantidad de números a generar
+rango_min = 1      # Valor mínimo del rango
+rango_max = 100    # Valor máximo del rango
+
+# Genera una lista de 'cantidad' números aleatorios entre rango_min y rango_max
+numeros_random = [random.randint(rango_min, rango_max) for _ in range(cantidad)]
+
+print(numeros_random)  # Muestra la lista generada
+
+# Explicación:
+# - random.randint(a, b): genera un número entero aleatorio entre 'a' y 'b' (ambos incluidos)
+# - El ciclo for _ in range(cantidad) repite la generación 'cantidad' de veces
