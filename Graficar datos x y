@@ -1,0 +1,50 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.style.use('_mpl-gallery')  # Cambia el estilo visual de la gráfica
+
+# make data
+x = np.linspace(0, 10, 100)      # Crea 100 valores entre 0 y 10 (eje x, suave)
+y = 4 + 1 * np.sin(2 * x)        # Calcula valores de y usando una función seno
+
+x2 = np.linspace(0, 10, 25)      # Crea 25 valores entre 0 y 10 (menos puntos)
+y2 = 4 + 1 * np.sin(2 * x2)      # Calcula valores de y2 usando la misma función
+
+# plot
+fig, ax = plt.subplots()         # Crea la figura y los ejes para graficar
+
+ax.plot(x2, y2 + 2.5, 'x', markeredgewidth=2)  # Grafica puntos 'x' desplazados arriba
+ax.plot(x, y, linewidth=2.0)                   # Grafica la curva suave
+ax.plot(x2, y2 - 2.5, 'o-', linewidth=2)       # Grafica puntos 'o' conectados, desplazados abajo
+
+# Configura los límites y las marcas de los ejes
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+
+plt.show()  # Muestra la gráfica en pantalla
+
+#Este es para mostrar una de una lista con sus tamaños y el tiempo que tarda una funcion en ordenarlos
+from bigO import BigO
+import random
+import matplotlib.pyplot as plt
+import numpy as np
+import time
+
+def ordenar(lista):
+    return sorted(lista)  # Puedes cambiar por otro algoritmo
+
+tamaños = [100, 500, 1000, 2000, 5000]
+tiempos = []
+
+for n in tamaños:
+    lista = [random.randint(1, 10000) for _ in range(n)]
+    inicio = time.time()
+    ordenar(lista)
+    fin = time.time()
+    tiempos.append(fin - inicio)
+
+plt.plot(tamaños, tiempos, marker='o')
+plt.xlabel('Tamaño de la lista')
+plt.ylabel('Tiempo de ordenamiento (segundos)')
+plt.title('Tiempo vs Tamaño de lista')
+plt.show()
