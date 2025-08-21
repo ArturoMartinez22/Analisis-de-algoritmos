@@ -1,0 +1,17 @@
+# Ejemplo: Generar una lista de caracteres aleatorios usando random
+
+import random
+import string  # Para obtener el conjunto de letras
+
+# Parámetros
+n = 10  # Cantidad de caracteres que quieres en la lista
+
+# random.choices() permite seleccionar múltiples elementos aleatorios de una secuencia
+# string.ascii_letters contiene todas las letras mayúsculas y minúsculas (a-z, A-Z)
+lista_random = random.choices(string.ascii_letters, k=n)
+
+print(lista_random)  # Muestra la lista generada
+
+# Explicación de parámetros:
+# - string.ascii_letters: secuencia de posibles caracteres
+# - k=n: cantidad de elementos a seleccionar
